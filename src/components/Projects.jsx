@@ -14,7 +14,7 @@ const projects = [
     id: 2,
     title: "Battleship",
     description: "Juego hecho en python usando RPC.",
-    image: "/assets/project2.png",
+    image: "/assets/project2.jpg",
     link: "#"
   },
   {
