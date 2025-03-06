@@ -14,28 +14,35 @@ const projects = [
     id: 2,
     title: "Battleship",
     description: "Juego hecho en python usando RPC.",
-    image: "/assets/project1.png",
+    image: "/assets/project2.png",
     link: "#"
   },
   {
     id: 3,
     title: "LearnDeck",
     description: "Herramienta gratuita que permite crear, geestionar cursos, tareas y calificaciones.",
-    image: "/assets/project1.png",
+    image: "/assets/project3.png",
     link: "#"
   },
   {
     id: 4,
     title: "Linkfast",
     description: "Proyecto sobre una red social que nos permite interacturar con cualquier persona.",
-    image: "/assets/project1.png",
+    image: "/assets/project4.png",
     link: "#"
   },
   {
     id: 5,
+    title: "Pagina web para panaderia",
+    description: "Pagina web para la panaderia D' Genesis que cuenta con sistema de compra",
+    image: "/assets/project5.png",
+    link: "#"
+  },
+  {
+    id: 6,
     title: "DIY NAS",
-    description: "Proyecto en curso...",
-    image: "/assets/project1.png",
+    description: "Proyecto en curso que contará con gestor de fotos, de arhivos y editor en linea",
+    image: "/assets/project6.png",
     link: "#"
   }
 ];
