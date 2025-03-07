@@ -10,6 +10,13 @@ export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
+  // Define social media links
+  const socialLinks = [
+    { Icon: BiLogoGmail, url: "mailto:romeroandre499@gmail.com?subject=Contacto desde tu sitio web" },
+    { Icon: IoLogoLinkedin, url: "https://www.linkedin.com/in/driu" },
+    { Icon: BsGithub, url: "https://github.com/yiixaj" }
+  ];
+
   return (
     <motion.div
       ref={ref}
@@ -56,15 +63,17 @@ export default function Contact() {
               </motion.button>
 
               <div className='flex items-center gap-x-2 lg:gap-x-5'>
-                {[BiLogoGmail, IoLogoLinkedin, BsGithub].map((Icon, index) => (
+                {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
-                    href="#"
+                    href={social.url}
                     className="bg-white p-2 lg:p-3 rounded border-2 border-black"
                     whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                     whileTap={{ scale: 0.9 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    <social.Icon className="w-4 h-4 lg:w-5 lg:h-5" />
                   </motion.a>
                 ))}
               </div>
@@ -89,7 +98,7 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="mailto:Youremail@gmail.com"
+              href="mailto:romeroandre499@gmail.com"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-1'>
                 <IoMdMail className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -100,7 +109,7 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="tele:1234567890"
+              href="tel:+593981636816"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-[5px]'>
                 <FaPhone className="w-3 h-3 lg:w-4 lg:h-4" />

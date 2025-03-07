@@ -15,7 +15,7 @@ const projects = [
     title: "Battleship",
     description: "Juego hecho en python usando RPC.",
     image: "/assets/project2.jpg",
-    link: "#"
+    link: "https://github.com/yiixaj/battleship.git"
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const projects = [
     title: "Pagina web para panaderia",
     description: "Pagina web para la panaderia D' Genesis que cuenta con sistema de compra",
     image: "/assets/project5.png",
-    link: "#"
+    link: "https://panaderiadegenesis.netlify.app/"
   },
   {
     id: 6,
