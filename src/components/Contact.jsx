@@ -10,10 +10,17 @@ export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
+  // Tu dirección de correo
+  const email = "romeroandre499@gmail.com";
+  
   // Define social media links
   const socialLinks = [
-    { Icon: BiLogoGmail, url: "mailto:romeroandre499@gmail.com?subject=Contacto desde tu sitio web" },
-    { Icon: IoLogoLinkedin, url: "https://www.linkedin.com/in/driu" },
+    { 
+      Icon: BiLogoGmail, 
+      // Link directo a compose de Gmail
+      url: `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Contacto desde tu sitio web` 
+    },
+    { Icon: IoLogoLinkedin, url: "https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME" },
     { Icon: BsGithub, url: "https://github.com/yiixaj" }
   ];
 

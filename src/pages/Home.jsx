@@ -6,6 +6,16 @@ import { BsGithub } from "react-icons/bs";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
+  // Define los enlaces de redes sociales
+  const socialLinks = [
+    { 
+      Icon: BiLogoGmail, 
+      url: "https://mail.google.com/mail/?view=cm&fs=1&to=romeroandre499@gmail.com&su=Contacto desde tu sitio web" 
+    },
+    { Icon: IoLogoLinkedin, url: "https://www.linkedin.com/in/driu" },
+    { Icon: BsGithub, url: "https://github.com/yiixaj" }
+  ];
+
   return (
     <div className="mt-20" id="home">
       <div className="flex justify-between py-10 items-center px-5 lg:px-28 lg:flex-row flex-col-reverse">
@@ -74,15 +84,17 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
-            {[BiLogoGmail, IoLogoLinkedin, BsGithub].map((Icon, index) => (
+            {socialLinks.map((social, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href={social.url}
                 className="bg-white p-2 lg:p-3 rounded border-2 border-black"
                 whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.9 }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
+                <social.Icon className="w-4 h-4 lg:w-5 lg:h-5" />
               </motion.a>
             ))}
           </motion.div>
