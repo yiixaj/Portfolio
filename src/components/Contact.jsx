@@ -20,7 +20,7 @@ export default function Contact() {
       // Link directo a compose de Gmail
       url: `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=Contacto desde tu sitio web` 
     },
-    { Icon: IoLogoLinkedin, url: "https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME" },
+    { Icon: IoLogoLinkedin, url: "https://www.linkedin.com/in/driu/" },
     { Icon: BsGithub, url: "https://github.com/yiixaj" }
   ];
 
