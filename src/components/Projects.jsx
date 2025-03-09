@@ -8,7 +8,7 @@ const projects = [
     title: "ClassTab",
     description: "Pagina de aprendizaje en linea",
     image: "/assets/project1.png",
-    link: "#"
+    link: "https://classtab.vercel.app/"
   },
   {
     id: 2,
