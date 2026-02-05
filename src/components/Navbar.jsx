@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TbDownload } from "react-icons/tb";
 import { HiOutlineMenu, HiX } from "react-icons/hi";
+import { MdLanguage } from "react-icons/md";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Navbar() {
   const [hasShadow, setHasShadow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +30,8 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
+  const sections = ["about", "skills", "projects", "contact"];
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -46,14 +51,14 @@ export default function Navbar() {
         />
 
         <ul className="hidden lg:flex items-center gap-x-7 font-semibold">
-          {["Sobre Mí", "habilidades", "proyectos", "contacto"].map((section) => (
+          {sections.map((section) => (
             <motion.li
               key={section}
               className="group"
               whileHover={{ scale: 1.1 }}
             >
               <button onClick={() => scrollToSection(section)}>
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {t(`nav.${section}`)}
               </button>
               <motion.span
                 className="w-0 transition-all duration-300 group-hover:w-full h-[2px] bg-black flex"
@@ -63,17 +68,30 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <motion.a
-          href="/assets/resume.pdf"
-          download="resume.pdf"
-          className="hidden relative lg:inline-block px-4 py-2 font-medium group"
-        >
-          <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-          <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
-          <span className="relative text-black group-hover:text-white flex items-center gap-x-3">
-            Resume <TbDownload size={16} />
-          </span>
-        </motion.a>
+        <div className="hidden lg:flex items-center gap-x-4">
+          {/* Language Toggle Button */}
+          <motion.button
+            onClick={toggleLanguage}
+            className="flex items-center gap-x-2 px-3 py-2 rounded border-2 border-black hover:bg-black hover:text-white transition-all font-medium"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MdLanguage size={18} />
+            <span className="text-sm">{language === 'es' ? 'EN' : 'ES'}</span>
+          </motion.button>
+
+          <motion.a
+            href="/assets/resume.pdf"
+            download="resume.pdf"
+            className="relative inline-block px-4 py-2 font-medium group"
+          >
+            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+            <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+            <span className="relative text-black group-hover:text-white flex items-center gap-x-3">
+              {t('nav.resume')} <TbDownload size={16} />
+            </span>
+          </motion.a>
+        </div>
 
         <motion.button
           className="lg:hidden text-2xl"
@@ -101,17 +119,28 @@ export default function Navbar() {
               <HiX />
             </button>
             <ul className="flex flex-col items-start ml-16 mt-28 h-full gap-y-6 font-semibold">
-              {["Sobre Mí", "habilidades", "proyectos", "contacto"].map((section) => (
+              {sections.map((section) => (
                 <motion.li
                   key={section}
                   className="border-b"
                   whileHover={{ scale: 1.1 }}
                 >
                   <button onClick={() => scrollToSection(section)}>
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {t(`nav.${section}`)}
                   </button>
                 </motion.li>
               ))}
+              
+              {/* Language Toggle in Mobile */}
+              <motion.button
+                onClick={toggleLanguage}
+                className="flex items-center gap-x-2 px-4 py-2 rounded border-2 border-black font-semibold"
+                whileHover={{ scale: 1.05, backgroundColor: "#000", color: "#fff" }}
+              >
+                <MdLanguage size={18} />
+                <span>{language === 'es' ? 'English' : 'Español'}</span>
+              </motion.button>
+
               <motion.a
                 href="/assets/resume.pdf"
                 download="resume.pdf"
@@ -121,7 +150,7 @@ export default function Navbar() {
                 <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
                 <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
                 <span className="relative text-black group-hover:text-white flex items-center gap-x-3">
-                  Resume <TbDownload size={16} />
+                  {t('nav.resume')} <TbDownload size={16} />
                 </span>
               </motion.a>
             </ul>
@@ -131,3 +160,4 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+
