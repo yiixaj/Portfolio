@@ -7,19 +7,22 @@ import Footer from './components/Footer'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import CustomCursor from './utils/CursorAnimation'
+import { LanguageProvider } from './context/LanguageContext'
 
 export default function App() {
   return (
-    <div className='font-sora scroll-smooth overflow-x-hidden'>
-      <CustomCursor/>
-      <Navbar />
-      <Home />
-      <Skills />
-      <About />
-      <Projects />
-      <Contact />
+    <LanguageProvider>
+      <div className='font-sora scroll-smooth overflow-x-hidden'>
+        <CustomCursor/>
+        <Navbar />
+        <Home />
+        <Skills />
+        <About />
+        <Projects />
+        <Contact />
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }
