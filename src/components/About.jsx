@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <div className="px-5 lg:px-28 flex justify-between flex-col lg:flex-row" id="about">
       <motion.div
@@ -22,21 +25,23 @@ export default function About() {
         viewport={{ once: true }}
       >
         <h2 className="lg:text-4xl text-2xl mt-4 lg:mt-0">
-          Sobre <span className="font-extrabold">Mí</span>
+          {t('about.title')} <span className="font-extrabold">{t('about.titleBold')}</span>
         </h2>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-5 lg:mt-10">
-        Soy un apasionado desarrollador full-stack especializado en diseño web frontend. Me encanta combinar la experiencia técnica con un diseño UI/UX elegante para crear aplicaciones de alto rendimiento y fáciles de usar.
+          {t('about.paragraph1')}
         </p>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-        Mi viaje de desarrollo web comenzó en 2020, y desde entonces, he evolucionado continuamente, asumiendo nuevos retos y manteniéndome al día con las últimas tecnologías. Hoy en día, construyo aplicaciones web, especialmente el lado frontend, sin dejar de lado las configuraciones para un backend práctico.
+          {t('about.paragraph2')}
         </p>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-        Más allá de la codificación, tambien tengo conocimiento en electronica que me ha permitido crear dispositivos que he podido conectar con mi trabajo como web developer.
+          {t('about.paragraph3')}
         </p>
       </motion.div>
     </div>
   );
 }
+
+
