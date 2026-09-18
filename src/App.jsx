@@ -1,26 +1,24 @@
-import React from 'react'
-import Home from './pages/Home'
-import Skills from './components/Skills'
+import { LanguageProvider } from './context/LanguageContext'
+import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Skills from './components/Skills'
 import About from './components/About'
-import Footer from './components/Footer'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
-import CustomCursor from './utils/CursorAnimation'
-import { LanguageProvider } from './context/LanguageContext'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
     <LanguageProvider>
-      <div className='font-sora scroll-smooth overflow-x-hidden'>
-        <CustomCursor/>
+      <div className="font-sora scroll-smooth overflow-x-hidden">
+        <Cursor />
         <Navbar />
-        <Home />
+        <Hero />
         <Skills />
         <About />
         <Projects />
         <Contact />
-
         <Footer />
       </div>
     </LanguageProvider>
